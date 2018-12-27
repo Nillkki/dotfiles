@@ -181,6 +181,9 @@ bar {
   	}
 }
 
+# NetworkManager menu for bar
+exec --no-startup-id nm-applet
+
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #E95420 #FFFFFF #E95420   #D14515
 client.focused_inactive #EA5F2E #74270B #FFFFFF #484E50   #5F676A
@@ -195,7 +198,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
 exec_always feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png
