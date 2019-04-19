@@ -9,4 +9,5 @@ endif
 " Bootstrap vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 " your plugins will go here
+Plug 'w0rp/ale'
 call plug#end()
