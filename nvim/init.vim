@@ -10,4 +10,6 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 " your plugins will go here
 Plug 'w0rp/ale'
+Plug 'philip-karlsson/bolt.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 call plug#end()
