@@ -120,3 +120,11 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/
 
 export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.1.0/Contents/Home
 
+# Load bash completions
+autoload bashcompinit
+bashcompinit
+
+for COMPLETION in "$(brew --prefix)/etc/bash_completion.d/"*; do
+  [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+done
+
