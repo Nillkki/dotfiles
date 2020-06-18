@@ -97,6 +97,14 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Load bash completions
+autoload bashcompinit
+bashcompinit
+
+for COMPLETION in "$(brew --prefix)/etc/bash_completion.d/"*; do
+  [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+done
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -105,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias tctl="docker run --network=host --rm temporalio/tctl:0.21.1"
 
 # Poetry
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -114,17 +123,7 @@ fi
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
 
-alias tctl="docker run --network=host --rm temporalio/tctl:0.21.1"
-
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
-
 export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.1.0/Contents/Home
 
-# Load bash completions
-autoload bashcompinit
-bashcompinit
-
-for COMPLETION in "$(brew --prefix)/etc/bash_completion.d/"*; do
-  [[ -r "$COMPLETION" ]] && source "$COMPLETION"
-done
-
+export PATH="/usr/local/opt/node@12/bin:$PATH"
