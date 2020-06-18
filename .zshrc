@@ -70,14 +70,6 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(alias-finder command-not-found colorize docker-compose docker extract git git-auto-fetch magic-enter ripgrep tig)
 
-# Call this before oh-my-zsh.sh
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -96,14 +88,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Load bash completions
-autoload bashcompinit
-bashcompinit
-
-for COMPLETION in "$(brew --prefix)/etc/bash_completion.d/"*; do
-  [[ -r "$COMPLETION" ]] && source "$COMPLETION"
-done
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
